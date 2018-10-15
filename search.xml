@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[你好]]></title>
+    <url>%2F2018%2F10%2F15%2F%E4%BD%A0%E5%A5%BD%2F</url>
+    <content type="text"><![CDATA[Compare powers题目level 6kyu题目描述 实现一个函数，比较两个幂指数的大小。如果第一个大，则返回-1。如果相等，则返回0。否则返回1。compare_powers([2,10],[2,15])# should return 1compare_powers([2,10],[2,10])# should return 0compare_powers([7,7],[5,8])# should return -1 解题思路 刚开始我用的power函数，直接两个相减，然后判断所得的差值的正负。但是ATTEMPT的时候会超时，因为测试的时候会出现数字很大的测试。 后来有小伙伴做了同样的题目。用的是log()方法，因为log()的单调函数，幂指数的大小比较可以通过转化为对数大小比较。 代码 我的代码 123456789from math import logdef compare_powers(n1,n2): num = n2[1] * log(n2[0]) - n1[1] * log(n1[0]) if num&gt;0: return 1 elif num&lt;0: return -1 else: return 0 答案中优秀代码 123from math import logdef compare_powers(n1, n2): return cmp(log(n2[0])*n2[1], log(n1[0])*n1[1]) 反思 优秀代码中还使用了cmp()函数。 cmp(x,y) 函数用于比较2个对象，如果 x &lt; y 返回 -1, 如果 x == y 返回 0, 如果 x &gt; y 返回 1。 注意和题目中要求的顺序不一样，只要把n2放在前面就好了。 pow()的复杂度应该是O(n),而log()的求解应该是有收敛度较高的数值计算方法，所以会比较快。具体不是很了解。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F10%2F15%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
