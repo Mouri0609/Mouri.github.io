@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Compare powers题目level 6kyu题目描述   实现一个函数，比较两个幂指数的大小。如果第一个大，则返回-1。如果相等，则返回0。否则返回1。compare_powers([2,10],[2,15])# should return 1compare_powers([2,10],[2,10])# should return 0compare_powers([7,7],[5,8])#">
-<meta property="og:type" content="article">
-<meta property="og:title" content="你好">
-<meta property="og:url" content="http://yoursite.com/2018/10/15/你好/index.html">
+<meta name="description" content="About Life, Books and Code">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
 <meta property="og:site_name" content="Mouri Blog">
-<meta property="og:description" content="Compare powers题目level 6kyu题目描述   实现一个函数，比较两个幂指数的大小。如果第一个大，则返回-1。如果相等，则返回0。否则返回1。compare_powers([2,10],[2,15])# should return 1compare_powers([2,10],[2,10])# should return 0compare_powers([7,7],[5,8])#">
+<meta property="og:description" content="About Life, Books and Code">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T10:33:57.152Z">
+<meta property="og:updated_time" content="2018-11-04T14:10:23.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你好">
-<meta name="twitter:description" content="Compare powers题目level 6kyu题目描述   实现一个函数，比较两个幂指数的大小。如果第一个大，则返回-1。如果相等，则返回0。否则返回1。compare_powers([2,10],[2,15])# should return 1compare_powers([2,10],[2,10])# should return 0compare_powers([7,7],[5,8])#">
+<meta name="twitter:title" content="categories">
+<meta name="twitter:description" content="About Life, Books and Code">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/15/你好/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/"/>
 
 
 
 
 
-  <title>你好 | Mouri Blog</title>
+  <title>categories | Mouri Blog</title>
   
 
 
@@ -282,162 +282,40 @@
 
   <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/你好/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mouri">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/mouri.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mouri Blog">
-    </span>
-
     
+    
+    <div class="post-block page">
       <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">你好</h1>
-        
+	<h1 class="post-title" itemprop="name headline">categories</h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T18:32:28+08:00">
-                2018-10-15
-              </time>
-            
 
-            
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
       
-
       
-        <h1 id="Compare-powers"><a href="#Compare-powers" class="headerlink" title="Compare powers"></a>Compare powers</h1><h2 id="题目level"><a href="#题目level" class="headerlink" title="题目level"></a>题目level</h2><ul>
-<li>6kyu<br>题目描述</li>
-</ul>
-<hr>
-<p>实现一个函数，比较两个幂指数的大小。如果第一个大，则返回-1。如果相等，则返回0。否则返回1。<br><code>compare_powers([2,10],[2,15])# should return 1</code><br><code>compare_powers([2,10],[2,10])# should return 0</code><br><code>compare_powers([7,7],[5,8])# should return -1</code></p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ul>
-<li>刚开始我用的power函数，直接两个相减，然后判断所得的差值的正负。但是ATTEMPT的时候会超时，因为测试的时候会出现数字很大的测试。</li>
-<li>后来有小伙伴做了同样的题目。用的是log()方法，因为log()的单调函数，幂指数的大小比较可以通过转化为对数大小比较。</li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
-<li><p>我的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> log</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compare_powers</span><span class="params">(n1,n2)</span>:</span></span><br><span class="line">    num = n2[<span class="number">1</span>] * log(n2[<span class="number">0</span>]) - n1[<span class="number">1</span>] * log(n1[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">if</span> num&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> num&lt;<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>答案中优秀代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> log</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compare_powers</span><span class="params">(n1, n2)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> cmp(log(n2[<span class="number">0</span>])*n2[<span class="number">1</span>], log(n1[<span class="number">0</span>])*n1[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><blockquote>
-<p>优秀代码中还使用了cmp()函数。</p>
-<ul>
-<li>cmp(x,y) 函数用于比较2个对象，如果 x &lt; y 返回 -1, 如果 x == y 返回 0, 如果 x &gt; y 返回 1。</li>
-<li>注意和题目中要求的顺序不一样，只要把n2放在前面就好了。</li>
-<li>pow()的复杂度应该是O(n),而log()的求解应该是有收敛度较高的数值计算方法，所以会比较快。具体不是很了解。</li>
-</ul>
-</blockquote>
-
+      <div class="post-body">
+        
+        
+          <div class="category-all-page">
+            <div class="category-all-title">
+                目前共计 1 个分类
+            </div>
+            <div class="category-all">
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
+            </div>
+          </div>
+        
+      </div>
+      
+      
       
     </div>
     
     
     
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/10/15/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -470,17 +348,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -499,14 +368,32 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -526,22 +413,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Compare-powers"><span class="nav-number">1.</span> <span class="nav-text">Compare powers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目level"><span class="nav-number">1.1.</span> <span class="nav-text">题目level</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反思"><span class="nav-number">1.4.</span> <span class="nav-text">反思</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
