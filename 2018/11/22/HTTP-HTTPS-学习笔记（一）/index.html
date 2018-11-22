@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/11/22/HTTP-HTTPS-学习笔记（一）/Http构建.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/11/22/HTTP-HTTPS-学习笔记（一）/缓存拦截.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/11/22/HTTP-HTTPS-学习笔记（一）/Http返回的构建.jpg">
-<meta property="og:updated_time" content="2018-11-22T12:47:22.520Z">
+<meta property="og:updated_time" content="2018-11-22T12:53:39.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP&#x2F;HTTPS 学习笔记（一）">
 <meta name="twitter:description" content="HTTP协议">
@@ -396,19 +396,19 @@
 <li>Cache-control : 控制缓存</li>
 </ul>
 <p>通过max-age指令判断客户端是接受缓存层的资源还是经请求转发给应用集群。详细关于HTTP的缓存控制可以看一下这篇博客。<a href="http://imweb.io/topic/5795dcb6fb312541492eda8c" target="_blank" rel="noopener">HTTP缓存控制</a></p>
-<h4 id="HTTP请求发送"><a href="#HTTP请求发送" class="headerlink" title="HTTP请求发送"></a>HTTP请求发送</h4><p>HTTP协议是基于TCP协议的，使用的是面向连接的方式发送请求。其发送的和路由转发原理一样。</p>
-<h4 id="HTTP返回的构建"><a href="#HTTP返回的构建" class="headerlink" title="HTTP返回的构建"></a>HTTP返回的构建</h4><p>和HTTP构建相似<br><img src="/2018/11/22/HTTP-HTTPS-学习笔记（一）/Http返回的构建.jpg" alt=""></p>
-<h4 id="HTTP2-0"><a href="#HTTP2-0" class="headerlink" title="HTTP2.0"></a>HTTP2.0</h4><p>优化</p>
+<h3 id="HTTP请求发送"><a href="#HTTP请求发送" class="headerlink" title="HTTP请求发送"></a>HTTP请求发送</h3><p>HTTP协议是基于TCP协议的，使用的是面向连接的方式发送请求。其发送的和路由转发原理一样。</p>
+<h3 id="HTTP返回的构建"><a href="#HTTP返回的构建" class="headerlink" title="HTTP返回的构建"></a>HTTP返回的构建</h3><p>和HTTP构建相似<br><img src="/2018/11/22/HTTP-HTTPS-学习笔记（一）/Http返回的构建.jpg" alt=""></p>
+<h3 id="HTTP2-0"><a href="#HTTP2-0" class="headerlink" title="HTTP2.0"></a>HTTP2.0</h3><p>优化</p>
 <ul>
 <li>压缩HTTP头，在每次需要携带大量key value的两端建立一个索引表，相同的头只发送索引表中的索引。</li>
 <li>可以将多个请求分到不同的流中，然后将请求内容拆成帧，进行二进制传输。</li>
 </ul>
-<h4 id="QUIC协议"><a href="#QUIC协议" class="headerlink" title="QUIC协议"></a>QUIC协议</h4><p>HTTP协议是基于TCP协议的，在处理包时有严格的顺序。会导致当一个包没有接受到时，必须等待包传输完成才可以进行。</p>
+<h3 id="QUIC协议"><a href="#QUIC协议" class="headerlink" title="QUIC协议"></a>QUIC协议</h3><p>HTTP协议是基于TCP协议的，在处理包时有严格的顺序。会导致当一个包没有接受到时，必须等待包传输完成才可以进行。</p>
 <ul>
 <li>自定义连接机制</li>
 <li>自定义重传机制</li>
 <li>无阻塞多路复用</li>
-<li>自定义流量控制<br><a href="https://zhuanlan.zhihu.com/p/32553477" target="_blank" rel="noopener">QUIC介绍</a></li>
+<li>自定义流量控制<br>关于QUIC的详细介绍请看这篇博客：<a href="https://zhuanlan.zhihu.com/p/32553477" target="_blank" rel="noopener">QUIC介绍</a></li>
 </ul>
 
       
@@ -584,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP协议"><span class="nav-number">1.</span> <span class="nav-text">HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP请求准备"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP请求准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP构建"><span class="nav-number">1.2.</span> <span class="nav-text">HTTP构建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#请求行"><span class="nav-number">1.2.1.</span> <span class="nav-text">请求行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首部"><span class="nav-number">1.2.2.</span> <span class="nav-text">首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP请求发送"><span class="nav-number">1.2.3.</span> <span class="nav-text">HTTP请求发送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP返回的构建"><span class="nav-number">1.2.4.</span> <span class="nav-text">HTTP返回的构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP2-0"><span class="nav-number">1.2.5.</span> <span class="nav-text">HTTP2.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QUIC协议"><span class="nav-number">1.2.6.</span> <span class="nav-text">QUIC协议</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP协议"><span class="nav-number">1.</span> <span class="nav-text">HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP请求准备"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP请求准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP构建"><span class="nav-number">1.2.</span> <span class="nav-text">HTTP构建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#请求行"><span class="nav-number">1.2.1.</span> <span class="nav-text">请求行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首部"><span class="nav-number">1.2.2.</span> <span class="nav-text">首部</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP请求发送"><span class="nav-number">1.3.</span> <span class="nav-text">HTTP请求发送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP返回的构建"><span class="nav-number">1.4.</span> <span class="nav-text">HTTP返回的构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP2-0"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP2.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QUIC协议"><span class="nav-number">1.6.</span> <span class="nav-text">QUIC协议</span></a></li></ol></li></ol></div>
             
 
           </div>
