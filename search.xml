@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[测试]]></title>
-    <url>%2F2018%2F11%2F23%2F%E6%B5%8B%E8%AF%95%2F</url>
-    <content type="text"><![CDATA[测试]]></content>
+    <title><![CDATA[Hexo 博客迁移]]></title>
+    <url>%2F2018%2F11%2F25%2Fhexo-%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%2F</url>
+    <content type="text"><![CDATA[Hexo 博客迁移管理在公司电脑上部署后，博客只能在公司编辑，总有一点不方便。查找了一些资料，如何把博客迁移到自己的笔记本中。主要有两种方法，一个是新建仓库来放环境文件，另一个是通过分支进行管理。本文采用的是通过分支进行管理。现在记录下该过程，方便以后有需要的时候即时查看。本文只记录迁移的过程 准备工作 github上已经搭建好相关仓库。 原电脑的操作步骤 新建分支dev，该分支用来存储静待文件。 1git checkout -b dev 将github 上的仓库下载到本地,删除这个文件夹所有的除了.git文件外的所有文件。 将工作区的变化提交（包括删除文件）。123git add -Agit commit -m &quot;message&quot;git push origin dev 4.复制.git文件到项目的根目录下。删除clone下来的文件夹。 新电脑上环境搭建 安装node.js和git 安装hexo 1npm install -g hexo-cli 下载仓库到本地 安装依赖 1npm install 进入到themes下，下载主题 1git clone https://github.com/iissnan/hexo-theme-next 同步完成以上工作后，两台电脑就可以通过git命令同步。目前流程可能有不完善的地方，以后碰到会对文章做出修改。 参考：参考链接]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[HTTP/HTTPS 学习笔记（一）]]></title>
