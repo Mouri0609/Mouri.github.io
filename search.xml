@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[git 常用命令操作]]></title>
+    <url>%2F2018%2F12%2F10%2Fgit-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[公司项目开发中经常使用git进行代码管理，记录常用问题以及遇到问题的解决方法。目前写下只是一部分印象较深的，以后会根据项目中遇到的问题进行解决并更新记录。 基本操作 平时代码上传拉取远程仓库并上传到远程仓库。 1234git add .git commit -am &quot;message&quot;git pullgit push origin branchName 检查分支状态 1git status 分支切换 1git checkout branchName 撤销commit 12git loggit reset --hard ^HEAD 返回到相应的提交位置 1git reset --hard commit_id 一般操作 在新的环境下新建本地仓库并拉取远程。进入项目复制该项目的SSH路径,使用git bash或者cmd进入到改项目路径。123git clone git@...git add .git commit -am &quot;first commit&quot;]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[kali 渗透攻击Samba服务]]></title>
     <url>%2F2018%2F11%2F27%2Fkali-%E6%B8%97%E9%80%8F%E6%94%BB%E5%87%BBSamba%E6%9C%8D%E5%8A%A1%E5%99%A8%2F</url>
-    <content type="text"><![CDATA[公司网站开发需要测试一下教学网站中的实验部分（一人两台实验机器，其中一台为kali，另一台为metasploitable）,看一下是否能正常使用。对kali工具不熟悉，找了几篇博客，并将主要流程记录下来。 使用postman发送请求，将两台虚拟机镜像的ID封装成json对象。后端接收到数据后，生成对应的虚拟机，打开openstack的dashboard可以看到生成两个虚拟机，信息如下(主要看主机名和IP)：后台返回kali的url。将url复制到浏览器中后开始操作。 准备工作nmap是一款专用的端口扫描工具，主要使用该工具发现局域网中的主机，和主机开放的端口。 主机扫描1nmap -sP 172.0.0.0-100 该命令是扫描发现局域网下IP为172.0.0.0-172.0.0.100下可以ping通的IP,结果如下。由图片可知，已经发现了IP为172.0.0.13的虚拟机。 端口扫描1nmap -sV 172.0.0.13 -A 该命令是发现主机开发的端口，通过扫描可以发现该主机开放了一些存在高危漏洞的端口。上图所示是该主机开放的所有端口，其中知道比较多的139、445等高危端口是开放的。 渗透攻击Samba服务Samba服务对应的端口有139和445等，只要开启这些端口后，主机就有可能存在Samba远程溢出漏洞。以下是攻击步骤： 启动MSF终端 1msfconsole 使用smb_version模块 1use exploit/multi/samba/usermap_script 设置RHOST选项 1set RHOST 172.0.0.13 启动渗透攻击 1exploit 等待完成，如果成功。使用Linux命令查询主机相关信息。例如查询系统当前用户和ip地址 12whoamiip address 这只是其中的一种漏洞，因为metasploitable是一个人工靶机，所以教程较多，攻击流畅。下面这篇博客里面还包含了其他的一些漏洞和攻击方法，可以参考。参考链接：Kali-Li nux渗透攻击应用]]></content>
+    <content type="text"><![CDATA[公司网站开发需要测试一下教学网站中的实验部分（一人两台实验机器，其中一台为kali，另一台为metasploitable）,看一下是否能正常使用。对kali工具不熟悉，找了几篇博客，并将主要流程记录下来。 使用postman发送请求，将两台虚拟机镜像的ID封装成json对象。后端接收到数据后，生成对应的虚拟机，打开openstack的dashboard可以看到生成两个虚拟机，信息如下(主要看主机名和IP)：后台返回kali的url。将url复制到浏览器中后开始操作。 准备工作nmap是一款专用的端口扫描工具，主要使用该工具发现局域网中的主机，和主机开放的端口。 主机扫描1nmap -sP 172.0.0.0-100 该命令是扫描发现局域网下IP为172.0.0.0-172.0.0.100下可以ping通的IP,结果如下。由图片可知，已经发现了IP为172.0.0.13的虚拟机。 端口扫描1nmap -sV 172.0.0.13 -A 该命令是发现主机开发的端口，通过扫描可以发现该主机开放了一些存在高危漏洞的端口。上图所示是该主机开放的所有端口，其中知道比较多的139、445等高危端口是开放的。 渗透攻击Samba服务Samba服务对应的端口有139和445等，只要开启这些端口后，主机就有可能存在Samba远程溢出漏洞。以下是攻击步骤： 启动MSF终端 1msfconsole 使用smb_version模块 1use exploit/multi/samba/usermap_script 设置RHOST选项 1set RHOST 172.0.0.13 启动渗透攻击 1exploit 等待完成，如果成功。使用Linux命令查询主机相关信息。例如查询系统当前用户和ip地址 12whoamiip address 这只是其中的一种漏洞，因为metasploitable是一个人工靶机，所以教程较多，攻击流畅。下面这篇博客里面还包含了其他的一些漏洞和攻击方法，可以参考。参考链接：Kali-Linux渗透攻击应用]]></content>
   </entry>
   <entry>
     <title><![CDATA[Hexo 博客迁移]]></title>
@@ -15,6 +23,11 @@
       <tags>
         <tag>hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo 同步管理]]></title>
+    <url>%2F2018%2F11%2F23%2Fhexo-%E5%90%8C%E6%AD%A5%E7%AE%A1%E7%90%86%2F</url>
+    <content type="text"></content>
   </entry>
   <entry>
     <title><![CDATA[HTTP/HTTPS 学习笔记（一）]]></title>
@@ -52,7 +65,7 @@
   <entry>
     <title><![CDATA[常用工具集]]></title>
     <url>%2F2018%2F11%2F17%2F%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E9%9B%86%2F</url>
-    <content type="text"><![CDATA[常用工具平时在学习中经常用到的方便快捷的小工具，总结一下并附上简单说明和下载链接。 常用工具平时在学习中经常用到的方便快捷的小工具，总结一下并附上简单说明和下载链接。 terminus 一款非常好用的远程连接工具。目前支持的windows、Android、ios、linux。下载链接]]></content>
+    <content type="text"><![CDATA[常用工具平时在学习中经常用到的方便快捷的小工具，总结一下并附上简单说明和下载链接。 常用工具平时在学习中经常用到的方便快捷的小工具，总结一下并附上简单说明和下载链接。 terminus 一款非常好用的远程连接工具。目前支持的windows、Android、ios、linux。下载链接 postman 后端开发中，测试接口返回信息的工具。下载链接]]></content>
       <categories>
         <category>工具</category>
       </categories>
