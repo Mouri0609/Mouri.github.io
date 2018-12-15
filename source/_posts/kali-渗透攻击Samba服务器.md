@@ -54,4 +54,4 @@ ip address
 ```
 ![](渗透攻击.png)
 这只是其中的一种漏洞，因为metasploitable是一个人工靶机，所以教程较多，攻击流畅。下面这篇博客里面还包含了其他的一些漏洞和攻击方法，可以参考。
-参考链接：[Kali-Li  nux渗透攻击应用](https://www.cnblogs.com/student-programmer/p/6728594.html)
+参考链接：[Kali-Linux渗透攻击应用](https://www.cnblogs.com/student-programmer/p/6728594.html)
