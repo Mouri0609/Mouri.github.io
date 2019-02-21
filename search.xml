@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[java设计模式学习笔记（模式比较）]]></title>
     <url>%2F2019%2F02%2F21%2Fjava%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E6%A8%A1%E5%BC%8F%E6%AF%94%E8%BE%83%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[模板方法模式V策略模式模板方法模式 定义一个算法大纲，子类定义部分具体内容。 提高了代码的复用策略模式 定义了一个算法家族，让这些算法可以互换。通过对象组合的方式，让客户可以选择这些算法实现。 更有弹性，客户可以在运行时通过选择不同的策略对象动态地改变算法。]]></content>
+    <content type="text"><![CDATA[模板方法模式V策略模式模板方法模式 定义一个算法大纲，子类定义部分具体内容。 提高了代码的复用 策略模式 定义了一个算法家族，让这些算法可以互换。通过对象组合的方式，让客户可以选择这些算法实现。 更有弹性，客户可以在运行时通过选择不同的策略对象动态地改变算法。]]></content>
       <categories>
         <category>java</category>
       </categories>
