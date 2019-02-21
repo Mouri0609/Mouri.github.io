@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="模板方法模式 在一个方法中定义一个算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以在不改变算法的结构下，重新定义算法中的某些步骤。">
+<meta name="description" content="问题在软件开发中，我们会碰到类似的情况，实现一个功能有多种途径，比如游乐园打折方案：老人，成人，儿童，亲子等不同打折模式。如果将这些打折方案的具体实现写进了同一个Ticket()类中，会出现以下三个问题：  Ticket类的calculate()方法非常庞大，它包含各种打折算法的实现代码，在代码中出现了较长的if…else…语句，不利于测试和维护。  增加新的打折算法或者对原有打折算法进行修改时必">
 <meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java设计模式学习笔记——模板方法模式">
-<meta property="og:url" content="http://yoursite.com/2019/02/20/模板方法模式学习笔记/index.html">
+<meta property="og:title" content="java设计模式学习笔记——策略模式">
+<meta property="og:url" content="http://yoursite.com/2019/02/21/java设计模式学习笔记——策略模式/index.html">
 <meta property="og:site_name" content="Mouri Blog">
-<meta property="og:description" content="模板方法模式 在一个方法中定义一个算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以在不改变算法的结构下，重新定义算法中的某些步骤。">
+<meta property="og:description" content="问题在软件开发中，我们会碰到类似的情况，实现一个功能有多种途径，比如游乐园打折方案：老人，成人，儿童，亲子等不同打折模式。如果将这些打折方案的具体实现写进了同一个Ticket()类中，会出现以下三个问题：  Ticket类的calculate()方法非常庞大，它包含各种打折算法的实现代码，在代码中出现了较长的if…else…语句，不利于测试和维护。  增加新的打折算法或者对原有打折算法进行修改时必">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-20T11:44:00.733Z">
+<meta property="og:updated_time" content="2019-02-21T05:13:26.917Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java设计模式学习笔记——模板方法模式">
-<meta name="twitter:description" content="模板方法模式 在一个方法中定义一个算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以在不改变算法的结构下，重新定义算法中的某些步骤。">
+<meta name="twitter:title" content="java设计模式学习笔记——策略模式">
+<meta name="twitter:description" content="问题在软件开发中，我们会碰到类似的情况，实现一个功能有多种途径，比如游乐园打折方案：老人，成人，儿童，亲子等不同打折模式。如果将这些打折方案的具体实现写进了同一个Ticket()类中，会出现以下三个问题：  Ticket类的calculate()方法非常庞大，它包含各种打折算法的实现代码，在代码中出现了较长的if…else…语句，不利于测试和维护。  增加新的打折算法或者对原有打折算法进行修改时必">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/20/模板方法模式学习笔记/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/21/java设计模式学习笔记——策略模式/"/>
 
 
 
 
 
-  <title>java设计模式学习笔记——模板方法模式 | Mouri Blog</title>
+  <title>java设计模式学习笔记——策略模式 | Mouri Blog</title>
   
 
 
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/模板方法模式学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/java设计模式学习笔记——策略模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mouri">
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java设计模式学习笔记——模板方法模式</h1>
+          <h1 class="post-title" itemprop="name headline">java设计模式学习笔记——策略模式</h1>
         
 
         <div class="post-meta">
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T18:36:16+08:00">
-                2019-02-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-21T09:41:05+08:00">
+                2019-02-21
               </time>
             
 
@@ -356,7 +356,7 @@
 
           
           
-             <span id="/2019/02/20/模板方法模式学习笔记/" class="leancloud_visitors" data-flag-title="java设计模式学习笔记——模板方法模式">
+             <span id="/2019/02/21/java设计模式学习笔记——策略模式/" class="leancloud_visitors" data-flag-title="java设计模式学习笔记——策略模式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -387,38 +387,83 @@
       
 
       
-        <h3 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h3><p> 在一个方法中定义一个算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以在不改变算法的结构下，重新定义算法中的某些步骤。<br> <a id="more"></a></p>
-<h3 id="代码demo"><a href="#代码demo" class="headerlink" title="代码demo"></a>代码demo</h3><p>国外人部分人的生活习惯和国内大部分人不同，举例早上起床。电影中常看到国外人起床一般都是先洗澡，然后再洗漱吃早餐。<br>程序代码如下：</p>
+        <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在软件开发中，我们会碰到类似的情况，实现一个功能有多种途径，比如游乐园打折方案：老人，成人，儿童，亲子等不同打折模式。如果将这些打折方案的具体实现写进了同一个Ticket()类中，会出现以下三个问题：</p>
 <ol>
-<li>模板抽象类   </li>
+<li><p>Ticket类的calculate()方法非常庞大，它包含各种打折算法的实现代码，在代码中出现了较长的if…else…语句，不利于测试和维护。</p>
+</li>
+<li><p>增加新的打折算法或者对原有打折算法进行修改时必须修改Ticket类的源代码，违反了“开闭原则”，系统的灵活性和可扩展性较差。</p>
+</li>
+<li><p>算法的复用性差，如果在另一个系统（如商场销售管理系统）中需要重用某些打折算法，只能通过对源代码进行复制粘贴来重用，无法单独重用其中的某个或某些算法（重用较为麻烦）。</p>
+</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> designPattern.TemplateMethod;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by Mouri on 2019/2/20 16:59</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">WakeUpTemplate</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wakeup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            leaveBed();</span><br><span class="line">            <span class="keyword">if</span>(IsTakeBath())&#123;</span><br><span class="line">                takeBath();</span><br><span class="line">            &#125;</span><br><span class="line">            brushTooth();</span><br><span class="line">            washFace();</span><br><span class="line">            eatBrakefast();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">leaveBed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"leave the bed first!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">takeBath</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"foreigner always take bathes first"</span>);</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">IsTakeBath</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">brushTooth</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"brush our tooth"</span>);</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">washFace</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"wash your face!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eatBrakefast</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>国内人起床的实现</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> designPattern.TemplateMethod;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by Mouri on 2019/2/20 17:20</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chinese</span> <span class="keyword">extends</span> <span class="title">WakeUpTemplate</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">eatBrakefast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Chinese likes soybean milk and congee"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>国外人的起床实现   </li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> designPattern.TemplateMethod;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by Mouri on 2019/2/20 17:23</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">American</span> <span class="keyword">extends</span> <span class="title">WakeUpTemplate</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">eatBrakefast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"American like milk and bread"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">IsTakeBath</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>测试   </li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> designPattern.TemplateMethod;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by Mouri on 2019/2/20 17:25</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        WakeUpTemplate wakeUpByChinese = <span class="keyword">new</span> Chinese();</span><br><span class="line">        WakeUpTemplate wakeUpByAmerican = <span class="keyword">new</span> American();</span><br><span class="line">        wakeUpByChinese.wakeup();</span><br><span class="line">        System.out.println(<span class="string">"==============================="</span>);</span><br><span class="line">        wakeUpByAmerican.wakeup();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">leave the bed first!</span><br><span class="line">brush our tooth</span><br><span class="line">wash your face!</span><br><span class="line">Chinese likes soybean milk and congee</span><br><span class="line">===============================</span><br><span class="line">leave the bed first!</span><br><span class="line">foreigner always take bathes first</span><br><span class="line">brush our tooth</span><br><span class="line">wash your face!</span><br><span class="line">American like milk and bread</span><br></pre></td></tr></table></figure></p>
-<p>通过子类的继承实现了不同的父类的步骤流程的细节，提高代码的复用。如果某步骤的执行需要判断条件，则可以在父类的模板方法中引入判断语句，如果子类需要实现该方法。则重写父类方法，将判断的值进行修改。</p>
+<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p> 策略模式定义了算法族，分别封装起来，让他们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。<br> <a id="more"></a></p>
+<h3 id="代码demo"><a href="#代码demo" class="headerlink" title="代码demo"></a>代码demo</h3><p>在github上star了一个设计模式的教程，不仅会讲解，最后还会给出题目练习。题目如下：</p>
+<p>Sunny软件公司欲开发一款飞机模拟系统，该系统主要模拟不同种类飞机的飞行特征与起飞特征，需要模拟的飞机种类及其特征如表24-1所示：<br>表24-1 飞机种类及特征一览表</p>
+<table>
+<thead>
+<tr>
+<th>飞机种类</th>
+<th style="text-align:center">起飞特征</th>
+<th style="text-align:right">飞行特征   </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直升机(Helicopter)</td>
+<td style="text-align:center">垂直起飞(VerticalTakeOff)</td>
+<td style="text-align:right">亚音速飞行(SubSonicFly)</td>
+</tr>
+<tr>
+<td>客机(AirPlane)</td>
+<td style="text-align:center">长距离起飞(LongDistanceTakeOff)</td>
+<td style="text-align:right">亚音速飞行(SubSonicFly)</td>
+</tr>
+<tr>
+<td>歼击机(Fighter)</td>
+<td style="text-align:center">长距离起飞(LongDistanceTakeOff)</td>
+<td style="text-align:right">超音速飞行(SuperSonicFly)</td>
+</tr>
+<tr>
+<td>鹞式战斗机(Harrier)</td>
+<td style="text-align:center">垂直起飞(VerticalTakeOff)</td>
+<td style="text-align:right">超音速飞行(SuperSonicFly)</td>
+</tr>
+</tbody>
+</table>
+<p>为将来能够模拟更多种类的飞机，试采用策略模式设计该飞机模拟系统。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Plane</span> </span>&#123;</span><br><span class="line">    <span class="comment">//维持飞机行为抽象类的引用</span></span><br><span class="line">    FlySpeed flySpeed;    </span><br><span class="line">    StartBehavior startBehavior;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Plane</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFly</span><span class="params">(FlySpeed fly)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.flySpeed = fly;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performFly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        flySpeed.fly();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStart</span><span class="params">(StartBehavior start)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.startBehavior = start;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        startBehavior.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StartBehavior</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FlySpeed</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Helicopter</span> <span class="keyword">extends</span> <span class="title">Plane</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Helicopter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        flySpeed = <span class="keyword">new</span> SubSonicFly();</span><br><span class="line">        startBehavior = <span class="keyword">new</span> VerticalTakeOff();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Fighter</span> <span class="keyword">extends</span> <span class="title">Plane</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Fighter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        flySpeed = <span class="keyword">new</span> SuperSonicFly();</span><br><span class="line">        startBehavior = <span class="keyword">new</span> LongDistanceTakeOff();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>起飞特征实现<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongDistanceTakeOff</span> <span class="keyword">implements</span> <span class="title">StartBehavior</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"LongDistanceTakeOff"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VerticalTakeOff</span> <span class="keyword">implements</span> <span class="title">StartBehavior</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"VerticalTakeOff"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>飞行特征实现<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubSonicFly</span> <span class="keyword">implements</span> <span class="title">FlySpeed</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"SubSonicFly"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SuperSonicFly</span> <span class="keyword">implements</span> <span class="title">FlySpeed</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"SuperSonicFly"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Plane helicopter = <span class="keyword">new</span> Helicopter();</span><br><span class="line">        helicopter.performFly();</span><br><span class="line">        helicopter.performStart();</span><br><span class="line"></span><br><span class="line">        helicopter.setStart(<span class="keyword">new</span> LongDistanceTakeOff()); <span class="comment">//修改起飞行为</span></span><br><span class="line">        helicopter.performStart();</span><br><span class="line">        System.out.println(<span class="string">"======================="</span>);</span><br><span class="line"></span><br><span class="line">        Plane fighter = <span class="keyword">new</span> Fighter();</span><br><span class="line">        fighter.performFly();</span><br><span class="line">        fighter.performStart();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SubSonicFly</span><br><span class="line">VerticalTakeOff</span><br><span class="line">LongDistanceTakeOff</span><br><span class="line">=======================</span><br><span class="line">SuperSonicFly</span><br><span class="line">LongDistanceTakeOff</span><br></pre></td></tr></table></figure></p>
+<p>可以看到能够动态的修改飞机的行为，如果需要扩展一种新的飞机，无需修改原来的代码。</p>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
-<li>子类在实现详细的处理流程时，不会打乱复杂的步骤的执行程序。</li>
-<li>通过恰当的继承实现代码的复用。</li>
-<li>可通过子类来覆盖父类的基本方法，更换和增加子类很方便，符合单一职责和开闭原则。</li>
+<li><p>策略模式提供了对“开闭原则”的完美支持，用户可以在不修改原有系统的基础上选择算法或行为，也可以灵活地增加新的算法或行为。</p>
+</li>
+<li><p>策略模式提供了管理相关的算法族的办法。策略类的等级结构定义了一个算法或行为族，恰当使用继承可以把公共的代码移到抽象策略类中，从而避免重复的代码。</p>
+</li>
+<li><p>策略模式提供了一种可以替换继承关系的办法。如果不使用策略模式，那么使用算法的环境类就可能会有一些子类，每一个子类提供一种不同的算法。但是，这样一来算法的使用就和算法本身混在一起，不符合“单一职责原则”，决定使用哪一种算法的逻辑和该算法本身混合在一起，从而不可能再独立演化；而且使用继承无法实现算法或行为在程序运行时的动态切换。</p>
+</li>
+<li><p>使用策略模式可以避免多重条件选择语句。多重条件选择语句不易维护，它把采取哪一种算法或行为的逻辑与算法或行为本身的实现逻辑混合在一起，将它们全部硬编码(Hard Coding)在一个庞大的多重条件选择语句中，比直接继承环境类的办法还要原始和落后。</p>
+</li>
+<li><p>策略模式提供了一种算法的复用机制，由于将算法单独提取出来封装在策略类中，因此不同的环境类可以方便地复用这些策略类。</p>
+</li>
 </ol>
 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
-<li>如果父类中的可变方法较多，则系统会变得庞大。此时可以结合桥接的模式进行设计（暂时没有学习）</li>
+<li><p>客户端必须知道所有的策略类，并自行决定使用哪一个策略类。这就意味着客户端必须理解这些算法的区别，以便适时选择恰当的算法。换言之，策略模式只适用于客户端知道所有的算法或行为的情况。</p>
+</li>
+<li><p>策略模式将造成系统产生很多具体策略类，任何细小的变化都将导致系统要增加一个新的具体策略类。</p>
+</li>
+<li><p>无法同时在客户端使用多个策略类，也就是说，在使用策略模式时，客户端每次只能使用一个策略类，不支持使用一个策略类完成部分功能后再使用另一个策略类来完成剩余功能的情况。</p>
+</li>
 </ol>
 <h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ol>
-<li>对一个算法或者流程中进行分析，将其中不变的部分设计成模板方法和父类具体方法，并将可变部分交给子类来实现。</li>
-<li>子类的公共行为应被集中到公共父类避免代码重复。</li>
-<li>需要通过子类来决定父类算法某个步骤的具体行为。</li>
+<li><p>一个系统需要动态地在几种算法中选择一种，那么可以将这些算法封装到一个个的具体算法类中，而这些具体算法类都是一个抽象算法类的子类。换言之，这些具体算法类均有统一的接口，根据“里氏代换原则”和面向对象的多态性，客户端可以选择使用任何一个具体算法类，并只需要维持一个数据类型是抽象算法类的对象。</p>
+</li>
+<li><p>一个对象有很多的行为，如果不用恰当的模式，这些行为就只好使用多重条件选择语句来实现。此时，使用策略模式，把这些行为转移到相应的具体策略类里面，就可以避免使用难以维护的多重条件选择语句。</p>
+</li>
+<li><p>不希望客户端知道复杂的、与算法相关的数据结构，在具体策略类中封装算法与相关的数据结构，可以提高算法的保密性与安全性。</p>
+</li>
 </ol>
 
       
@@ -450,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/28/srsLTE安装/" rel="next" title="srsLTE安装">
-                <i class="fa fa-chevron-left"></i> srsLTE安装
+              <a href="/2019/02/20/java设计模式学习笔记——模板方法模式/" rel="next" title="java设计模式学习笔记——模板方法模式">
+                <i class="fa fa-chevron-left"></i> java设计模式学习笔记——模板方法模式
               </a>
             
           </div>
@@ -459,6 +504,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/21/java设计模式学习笔记（模式比较）/" rel="prev" title="java设计模式学习笔记（模式比较）">
+                java设计模式学习笔记（模式比较） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -544,7 +593,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -609,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板方法模式"><span class="nav-number">1.</span> <span class="nav-text">模板方法模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码demo"><span class="nav-number">2.</span> <span class="nav-text">代码demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">3.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">4.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">5.</span> <span class="nav-text">适用场景</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式"><span class="nav-number">2.</span> <span class="nav-text">策略模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码demo"><span class="nav-number">3.</span> <span class="nav-text">代码demo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">4.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">5.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">6.</span> <span class="nav-text">适用场景</span></a></li></ol></div>
             
 
           </div>
